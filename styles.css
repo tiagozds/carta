@@ -1,0 +1,154 @@
+
+.flapImage, .letterImage, .backEnvelop{
+    width: 100%;
+}
+
+.backEnvelop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+
+}
+
+
+
+.letterImageWrite{
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+    width: 95%;
+    z-index: -1;
+}
+.letterImageWrite.slideLetter{
+    animation:slideLetter 1s ease-in-out 3s forwards;
+}
+
+
+.heartImage{
+    width: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.heartImage.slideHeart{
+    animation: slideHeart 3s ease-in-out 2.5s 1 forwards;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(rgb(218, 0, 0), rgb(190, 0, 0),rgb(122, 0, 0));
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.envelope{
+    position: relative;
+    width: 410px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow:  0 2px 4px rgba(255, 0, 0, 0.2);
+
+}
+
+
+.flap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    transform-origin: top;
+    transform: rotateX(0deg);
+}
+
+.flap.open{
+    animation: openFlap 2s ease-in-out forwards;
+}
+
+.flapImage, .letterImage{
+    width: 100%;
+}
+
+
+.message {
+    position: absolute;
+    top: 10%;
+    left: 19%;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 10s ease-in-out;
+
+}
+.message.visible{
+    opacity: 1;
+}
+
+button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: hsl(345, 100%, 36%);
+    color: #fff;            
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px #4d0000;
+}
+button:hover{
+    background-color: rgb(194, 0, 26);
+}
+
+@keyframes openFlap{
+    0%{
+        transform: rotateX(0deg);
+
+    }
+    95%{
+        transform: rotateX(180deg);
+        z-index: 0;
+    }
+
+
+
+    100%{
+        transform: rotateX(180deg);
+        z-index: -2;
+    }
+    
+}
+
+@keyframes slideLetter{
+    0%{
+        transform: translateY(0)
+    }
+
+    100%{
+        transform: translateY(-70px)
+    }
+}
+
+@keyframes slideHeart{
+    0%{
+        transform: translateY(0) rotate(0);
+    }
+    25%{
+        transform: translateY(-125px) rotate(10deg);
+    }
+    50%{
+        transform: translateY(-250px) rotate(-10deg);
+    }
+    75%{
+        transform: translateY(-375px) rotate(10deg);
+    }
+    100%{
+        transform: translateY(-500px) rotate(-10deg);
+    }
+}
